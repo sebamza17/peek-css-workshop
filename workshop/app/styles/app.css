@@ -1,0 +1,53 @@
+@import url("_init.css");
+@import url("_section.css");
+@import url("_sidenav.css");
+@import url("_demo.css");
+
+:root {
+  --color-sidenav-background: #333;
+  --color-sidenav-link: #aaa;
+  --color-sidenav-link-hover: white;
+  --color-text: #333;
+  --color-border: #cbcbcb;
+  --color-absolute: #ff5833;
+  --sidenav-width: 240px;
+
+  --section-z-index: 2;
+  --section-padding: 16px;
+}
+
+html {
+  color: var(--color-text);
+}
+
+.layout {
+  width: 100%;
+  min-height: 100dvh;
+  display: flex;
+}
+
+.layout__header {
+  position: sticky;
+  top: 0;
+  z-index: var(--section-z-index);
+
+  padding: var(--section-padding);
+
+  background: white;
+  font-size: 28px;
+  font-weight: 700;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.layout__content {
+  width: calc(100% - var(--sidenav-width));
+  max-height: 100dvh;
+  overflow: auto;
+}
+
+.layout__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}

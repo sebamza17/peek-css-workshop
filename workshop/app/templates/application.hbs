@@ -1,0 +1,19 @@
+{{page-title "CSS Workshop"}}
+
+<div class="layout">
+  <div class="layout__sidenav">
+    <div class="layout__sidenav__logo">
+      <LinkTo @route="application">
+        <img src="/assets/images/peek-logo.png" alt="">
+      </LinkTo>
+    </div>
+
+    <div class="layout__sidenav__item">
+      <LinkTo @route="position">Position</LinkTo>
+    </div>
+  </div>
+
+  <div class="layout__content">
+    {{outlet}}
+  </div>
+</div>

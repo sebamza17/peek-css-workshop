@@ -1,0 +1,298 @@
+{{page-title "Position"}}
+
+<!-- Position: Static -->
+<div class="layout__section">
+  <div class="layout__header">
+    <div class="layout__container">
+      Position: Static
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="layout__container">
+      <div class="section__header">
+        How does this work?
+      </div>
+
+      <div class="section__description">
+        <p>
+          <code>position: static</code> is the default value for all HTML elements. It means the element is positioned
+          according to the normal document flow.
+          The element will be placed in the document as it appears in the HTML, without any special positioning.
+        </p>
+        <p>
+          The <code>top, right, bottom, left</code> properties have no effect on a statically positioned element. If you
+          inspect the element below, you will see that the element is positioned according to the normal document flow,
+          and the <code>top, right, bottom, left</code> properties are set, but not being applied.
+        </p>
+      </div>
+
+      <div class="section__body">
+        <div class="demo-container">
+          <div class="demo-item" style="width: 500px;">
+            <div class="demo-item demo-item--base">
+              <div class="demo-item demo-item--static">
+                position: static
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end Position: Static -->
+
+<!-- Position: Relative -->
+<div class="layout__section">
+  <div class="layout__header">
+    <div class="layout__container">
+      Position: Relative
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="layout__container">
+      <div class="section__header">
+        How does this work?
+      </div>
+
+      <div class="section__description">
+        <p>
+          <code>position: relative</code> is similar to <code>position: static</code>, but enables the properties <code>top,
+          left, right, bottom, z-index</code>
+          to affect the element's position.
+          according to the normal document flow.
+          The element still occupies its original space in the document flow, even if it is moved.
+        </p>
+        <p>
+          The <code>top, right, bottom, left</code> properties have an effect on a relatively positioned element. If you
+          inspect the element below, you'll notice that the element is positioned according to the normal document flow,
+          and <code>top</code> and <code>left</code> properties have an effect on the element's position.
+        </p>
+      </div>
+
+      <div class="section__body">
+        <div class="demo-container">
+          <div class="demo-item" style="width: 500px;">
+            <div class="demo-item demo-item--base">
+              <div class="demo-item demo-item--relative">
+                position: relative
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end Position: Relative -->
+
+<!-- Position: Absolute -->
+<div class="layout__section">
+  <div class="layout__header">
+    <div class="layout__container">
+      Position: Absolute
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="layout__container">
+      <div class="section__header">
+        How does this work?
+      </div>
+
+      <div class="section__description">
+        <p>
+          <code>position: absolute</code> uses the top, right, bottom, and left properties to position an element
+          relative
+          to its containing block.
+        </p>
+        <p>
+          The element is removed from the normal document flow, and no space is created for the element in the page
+          layout.
+          The element is positioned relative to its closest positioned ancestor (if any) or to the initial containing
+          block.
+          Its final position is determined by the values of top, right, bottom, and left.
+        </p>
+        <p>
+          <code>top, right, left, bottom</code> properties are useful to position any absolute element relative to its
+          <code>position: relative</code> parent.
+          These properties can use any CSS unit as value. For example, <code>px</code>, <code>%</code>, <code>em</code>,
+          etc. It can also use the <code>unset</code>
+          value, which means no value given.
+        </p>
+        <p>
+          Inspecting the element below, you can see how the element is positioned using the <code>top, right, left,
+          bottom</code> properties.
+        </p>
+        <p>
+          On the <b>Controls</b> section you can modify how the <code>top, right, left, bottom</code> properties are
+          set.
+          See how each value changes
+          how the element is positioned. <code>%</code> values are very useful whenever you need to rely on a value that
+          is relative to the
+          parent element's width or height without knowing the actual value.
+        </p>
+      </div>
+
+      <div class="section__body">
+        <div class="demo-container">
+          <div class="demo-item" style="width: 500px; height: 400px;">
+            <div class="demo-item demo-item--base">
+              <div class="demo-item demo-item--absolute"
+                   style="top: {{this.absoluteRangeValueTop}}; bottom: {{this.absoluteRangeValueBottom}}; left: {{this.absoluteRangeValueLeft}}; right: {{this.absoluteRangeValueRight}}">
+                This is absolutely positioned
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section__controls">
+        <div class="section__controls__title">
+          Controls
+        </div>
+
+        <div class="section__controls__input">
+          <button class="section__button" type="button" {{on 'click' (fn this.updateAbsoluteMode 'px')}}>
+            Update Pixel Value
+          </button>
+
+          <button class="section__button" type="button" {{on 'click' (fn this.updateAbsoluteMode '%')}}>
+            Update Percentage Value
+          </button>
+
+          <button class="section__button" type="button" {{on 'click' this.resetValues}}>
+            Reset
+          </button>
+        </div>
+
+        <div class="section__controls__input">
+          <label for="top">
+            Top
+          </label>
+
+          <input
+            id="top"
+            type="range"
+            name="absolute-position"
+            value={{this.absoluteRangeValue}}
+            min={{this.sliderConfig.range.min}}
+            max={{this.sliderConfig.range.max}}
+            oninput={{action this.updateRangeValue 'top'}}
+          />
+
+          Value: {{this.absoluteRangeValueTop}}
+        </div>
+
+        <div class="section__controls__input">
+          <label for="right">
+            Right
+          </label>
+
+          <input
+            id="right"
+            type="range"
+            name="absolute-position"
+            value={{this.absoluteRangeValue}}
+            min={{this.sliderConfig.range.min}}
+            max={{this.sliderConfig.range.max}}
+            oninput={{action this.updateRangeValue 'right'}}
+          />
+
+          Value: {{this.absoluteRangeValueRight}}
+        </div>
+
+        <div class="section__controls__input">
+          <label for="bottom">
+            Bottom
+          </label>
+
+          <input
+            id="bottom"
+            type="range"
+            name="absolute-position"
+            value={{this.absoluteRangeValue}}
+            min={{this.sliderConfig.range.min}}
+            max={{this.sliderConfig.range.max}}
+            oninput={{action this.updateRangeValue 'bottom'}}
+          />
+
+          Value: {{this.absoluteRangeValueBottom}}
+        </div>
+
+        <div class="section__controls__input">
+          <label for="left">
+            Left
+          </label>
+
+          <input
+            id="left"
+            type="range"
+            name="absolute-position"
+            value={{this.absoluteRangeValue}}
+            min={{this.sliderConfig.range.min}}
+            max={{this.sliderConfig.range.max}}
+            oninput={{action this.updateRangeValue 'left'}}
+          />
+
+          Value: {{this.absoluteRangeValueLeft}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end Position: Absolute -->
+
+<!-- Position: Sticky -->
+<div class="layout__section">
+  <div class="layout__header">
+    <div class="layout__container">
+      Position: Sticky
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="layout__container">
+      <div class="section__header">
+        How does this work?
+      </div>
+
+      <div class="section__description">
+        <p>
+          <code>position: sticky</code> property in CSS is a hybrid of relative and fixed positioning. An element with
+          position: sticky is treated as relative until it crosses a specified threshold, at which point it is treated
+          as fixed. This allows the element to "stick" to a position within its containing block as the user scrolls.
+        </p>
+        <p>
+          Sticky elements are positioned according to the normal document flow (like relative). When a sticky element
+          reaches a defined position using <code>top, right, bottom, left</code>, it switches to fixed positioning.
+        </p>
+        <p>
+          As a caveat, sticky element will only stick within its containing block. Once the containing block is out of
+          view, the sticky element will scroll with it. This means that <code>position: sticky</code> is local and
+          relative to the containing block.
+        </p>
+        <p>The section titles on this page are <code>position: sticky</code></p>
+      </div>
+
+      <div class="section__body">
+        <div class="demo-container">
+          <div class="demo-item demo-item--base" style="max-width: 500px; max-height: 400px; overflow: auto;">
+            <div class="demo-item" style="height: 100px; width: 1000px; max-width: none; background-color: black; color: white;">
+              No sticky
+            </div>
+            <div class="demo-item demo-item--sticky">
+              position: sticky
+            </div>
+            <div class="demo-item" style="height: 1000px; width: 1000px; max-width: none; background-color: black; color: white;">
+              No sticky
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end Position: Sticky -->

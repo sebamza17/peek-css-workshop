@@ -1,0 +1,29 @@
+.layout__sidenav {
+  width: var(--sidenav-width);
+  min-height: 100dvh;
+  max-height: 100dvh;
+  overflow: auto;
+  flex-shrink: 0;
+  background-color: var(--color-sidenav-background);
+}
+
+.layout__sidenav__logo {
+  max-width: 100%;
+  padding: 8px;
+}
+
+.layout__sidenav__logo img {
+  width: 40px;
+}
+
+.layout__sidenav__item a {
+  display: block;
+  padding: 8px 16px;
+  color: var(--color-sidenav-link);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.layout__sidenav__item a:hover {
+  color: var(--color-sidenav-link-hover);
+}
