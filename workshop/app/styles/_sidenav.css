@@ -24,6 +24,7 @@
   transition: all 0.2s ease;
 }
 
-.layout__sidenav__item a:hover {
+.layout__sidenav__item a:hover,
+.layout__sidenav__item a.active{
   color: var(--color-sidenav-link-hover);
 }

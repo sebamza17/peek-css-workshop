@@ -1,0 +1,291 @@
+{{page-title "Zindex"}}
+
+<!-- z-index basics -->
+<div class="layout__section">
+  <div class="layout__header">
+    <div class="layout__container">
+      <code>z-index</code> basics
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="layout__container">
+      <div class="section__header">
+        3D on a 2D world
+      </div>
+
+      <div class="section__description">
+        <p>
+          <code>z-index</code> property specifies the stack order of an element. An element with a higher z-index is
+          always in front of an element with a lower z-index.
+        </p>
+        <p>
+          <code>z-index</code> only works on elements that have a position value other than static (i.e., relative,
+          absolute, fixed, or sticky).
+        </p>
+        <p>
+          Values can be a positive or negative integer, or <code>auto</code>.
+        </p>
+      </div>
+
+      <div class="section__body">
+        <div class="demo-container">
+          <div class="demo-item" style="width: 500px;">
+            <div class="demo-item demo-item--base">
+              <div class="demo-item demo-item--z-index-1" style="z-index: {{this.zIndexA}};">
+                DIV A
+              </div>
+
+              <div class="demo-item demo-item--z-index-2" style="z-index: {{this.zIndexB}};">
+                DIV B
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section__controls">
+        <div class="section__controls__title">
+          Controls
+        </div>
+
+        <div class="section__controls__input">
+          <button class="section__button" type="button" {{on 'click' (fn this.updateZIndex 'A')}}>
+            Increase A <code>z-index</code>
+          </button>
+
+          <button class="section__button" type="button" {{on 'click' (fn this.updateZIndex 'B')}}>
+            Increase B <code>z-index</code>
+          </button>
+        </div>
+
+        <div class="section__controls__input">
+          A <code>z-index</code>: {{this.zIndexA}}
+        </div>
+
+        <div class="section__controls__input">
+          B <code>z-index</code>: {{this.zIndexB}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end z-index basics -->
+
+<!-- z-index requirements -->
+<div class="layout__section">
+  <div class="layout__header">
+    <div class="layout__container">
+      <code>z-index</code> requirements
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="layout__container">
+      <div class="section__header">
+        <code>position</code> should not be <code>static</code>
+      </div>
+
+      <div class="section__description">
+        <p>
+          The <code>z-index</code> property only works on elements that have a position value other than static (i.e.,
+          relative, absolute, fixed, or sticky).
+        </p>
+        <p>
+          If no <code>position</code> is given, <code>z-index</code> won't have any effect. On the example below, DIV A
+          has <code>z-index: 1</code> and DIV B has <code>z-index: 1000; position: static;</code>. DIV B
+          <code>z-index</code> value is ignored due to its position value <code>static</code>.
+        </p>
+      </div>
+
+      <div class="section__body">
+        <div class="demo-container">
+          <div class="demo-item" style="width: 500px;">
+            <div class="demo-item demo-item--base">
+              <div class="demo-item demo-item--z-index-1" style="z-index: 1;">
+                DIV A
+              </div>
+
+              <div class="demo-item demo-item--z-index-2"
+                   style="position: static; z-index: 1000; transform: translateY(-10px);">
+                DIV B
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end z-index requirements -->
+
+<!-- z-index stacking context -->
+<div class="layout__section">
+  <div class="layout__header">
+    <div class="layout__container">
+      <code>z-index</code> and document flow
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="layout__container">
+      <div class="section__header">
+        Document flow is <b>important</b>
+      </div>
+
+      <div class="section__description">
+        <p>
+          By default, HTML elements have a <code>z-index</code> value of auto, which means they follow the stacking
+          order based on their position in the document flow. The default stacking order is as follows:
+        </p>
+        <ul>
+          <li>
+            <b>
+              Background and Borders:
+            </b>
+            The background and borders of the root element.
+          </li>
+          <li>
+            <b>
+              Non-Positioned Elements:
+            </b>
+            Elements that do not have a position value of relative, absolute, fixed, or sticky.
+          </li>
+          <li>
+            <b>
+              Positioned Elements:
+            </b>
+            Elements that have a position value of relative, absolute, fixed, or sticky and a
+            z-index value of auto.
+          </li>
+          <li>
+            <b>
+              Stacking Contexts:
+            </b>
+            Elements that create a new stacking context (e.g., elements with a z-index value other
+            than auto).
+          </li>
+        </ul>
+        <p>
+          On the example below, there is no <code>z-index</code> value given for neither divs, but still the 2nd div
+          stacks on top of the 1st one
+        </p>
+        <p>
+          Each stacking context is independent of each other, and the stacking order applied within each one of them is
+          the following:
+        </p>
+        <ul>
+          <li>
+            <b>
+              Background and Borders:
+            </b>
+            The background and borders of the element forming the stacking context.
+          </li>
+          <li>
+            <b>
+              Negative z-index:
+            </b>
+            Descendant elements with a negative z-index.
+          </li>
+          <li>
+            <b>
+              Block-Level and Inline-Level Elements:
+            </b>
+            Non-positioned elements in the order they appear in the HTML.
+          </li>
+          <li>
+            <b>
+              Positioned Elements:
+            </b>
+            Positioned elements with a z-index value of auto.
+          </li>
+          <li>
+            <b>
+              Positive z-index:
+            </b>
+            Descendant elements with a positive z-index.
+          </li>
+        </ul>
+      </div>
+
+      <div class="section__body">
+        <div class="demo-container">
+          <div class="demo-item" style="width: 500px;">
+            <div class="demo-item demo-item--base">
+              <div class="demo-item demo-item--z-index-1">
+                DIV A
+              </div>
+
+              <div class="demo-item demo-item--z-index-2">
+                DIV B
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end z-index stacking context -->
+
+<!-- z-index parent context -->
+<div class="layout__section">
+  <div class="layout__header">
+    <div class="layout__container">
+      <code>z-index</code> parent context
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="layout__container">
+      <div class="section__header">
+        Parent stacking context matters
+      </div>
+
+      <div class="section__description">
+        <p>
+          <code>z-index</code> property is scoped down to the element's parent. This means that <code>z-index</code>
+          is not a global value, so if an element has <code>z-index: 1;</code>, all its childrens will be affected by
+          this value in the way that respectively to the parent's siblings, they all will have <code>z-index: 1;</code>
+        </p>
+        <p>
+          On the example below, DIV A has <code>z-index: 1000</code> and DIV B has <code>z-index: 1001</code>. Both
+          elements are children of the same parent, so they will be affected by the parent's <code>z-index</code> value.
+          Internal <code>z-index</code> values are relative to the parent's <code>z-index</code> value.
+        </p>
+        <p>
+          Inspect these elements to see how parent's <code>z-index</code> values limits children <code>z-index</code>
+          values.
+        </p>
+      </div>
+
+      <div class="section__body">
+        <div class="demo-container">
+          <div class="demo-item" style="width: 500px; display: flex;">
+            <div class="demo-item demo-item--base" style="width: 50%; position: relative; z-index: 1;">
+              <div class="demo-item demo-item--z-index-1" style="z-index: 1000;">
+                DIV A
+              </div>
+
+              <div class="demo-item demo-item--z-index-2" style="z-index: 1001;">
+                DIV B
+              </div>
+            </div>
+
+            <div class="demo-item demo-item--base"
+                 style="width: 50%; position: relative; z-index: 2; transform: translate(-40px, 40px);">
+              <div class="demo-item demo-item--z-index-1" style="z-index: 1; background-color: pink;">
+                DIV C
+              </div>
+
+              <div class="demo-item demo-item--z-index-2" style="z-index: 2; background-color: lightgreen;">
+                DIV D
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end z-index parent context -->

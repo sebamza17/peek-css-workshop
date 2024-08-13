@@ -1,7 +1,6 @@
 .section {
   position: relative;
   z-index: calc(var(--section-z-index) - 1);
-
   padding: calc(var(--section-padding) + 8px);
 }
 
@@ -14,10 +13,6 @@
 .section__description {
   margin-bottom: 16px;
   font-size: 16px;
-}
-
-.section__description code {
-  color: var(--color-absolute);
 }
 
 .section__controls {

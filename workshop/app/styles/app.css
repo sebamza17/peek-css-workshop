@@ -11,7 +11,6 @@
   --color-border: #cbcbcb;
   --color-absolute: #ff5833;
   --sidenav-width: 240px;
-
   --section-z-index: 2;
   --section-padding: 16px;
 }
@@ -30,15 +29,13 @@ html {
   position: sticky;
   top: 0;
   z-index: var(--section-z-index);
-
   padding: var(--section-padding);
-
   background: white;
   font-size: 28px;
   font-weight: 700;
   border-top: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 2px 4px rgb(0 0 0 / 10%);
 }
 
 .layout__content {
@@ -50,4 +47,8 @@ html {
 .layout__container {
   max-width: 1200px;
   margin: 0 auto;
+}
+
+code {
+  color: var(--color-absolute);
 }

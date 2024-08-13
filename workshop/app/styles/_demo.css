@@ -34,12 +34,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
   top: 20px;
   left: 20px;
-
+  z-index: 1;
   padding: 8px;
-
   background: cornflowerblue;
   color: white;
 }
@@ -51,12 +49,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
   padding: 8px;
-
   top: 20px;
   left: 20px;
-
   background: pink;
   color: white;
 }
@@ -68,12 +63,39 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
   padding: 8px;
-
   top: 0;
   left: 0;
-
   background: greenyellow;
   color: black;
+}
+
+.demo-item.demo-item--fixed {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+
+  width: auto;
+  height: auto;
+  background: burlywood;
+  padding: 16px;
+  z-index: 1;
+}
+
+.demo-item.demo-item--z-index-1 {
+  position: relative;
+
+  height: 100px;
+  background: #b3d4fc;
+  width: 100%;
+}
+
+.demo-item.demo-item--z-index-2 {
+  position: relative;
+
+  height: 100px;
+  background: red;
+  width: 50%;
+
+  top: -30px;
 }

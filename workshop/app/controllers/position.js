@@ -1,6 +1,6 @@
 import BaseController from './BaseController';
-import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
+import {tracked} from '@glimmer/tracking';
+import {action} from '@ember/object';
 
 export default class PositionController extends BaseController {
   @tracked absoluteRangeValueTop = 'unset';
@@ -8,6 +8,7 @@ export default class PositionController extends BaseController {
   @tracked absoluteRangeValueLeft = 'unset';
   @tracked absoluteRangeValueBottom = 'unset';
   @tracked absoluteMode = 'px';
+  @tracked fixedSectionZIndex = 0;
 
   @action
   resetValues() {
@@ -36,5 +37,19 @@ export default class PositionController extends BaseController {
   @action
   updateAbsoluteMode(mode) {
     this.absoluteMode = mode;
+  }
+
+  @action
+  increaseSectionZIndex() {
+    this.fixedSectionZIndex++
+  }
+
+  @action
+  decreaseSectionZIndex() {
+    if (this.fixedSectionZIndex <= 0) {
+      return
+    }
+
+    this.fixedSectionZIndex--
   }
 }

@@ -1,10 +1,10 @@
 {{page-title "Position"}}
 
-<!-- Position: Static -->
+{{!-- Position: Static --}}
 <div class="layout__section">
   <div class="layout__header">
     <div class="layout__container">
-      Position: Static
+      <code>position: static</code>
     </div>
   </div>
 
@@ -41,13 +41,13 @@
     </div>
   </div>
 </div>
-<!-- end Position: Static -->
+{{!-- end Position: Static --}}
 
-<!-- Position: Relative -->
+{{!-- Position: Relative --}}
 <div class="layout__section">
   <div class="layout__header">
     <div class="layout__container">
-      Position: Relative
+      <code>position: relative</code>
     </div>
   </div>
 
@@ -86,13 +86,13 @@
     </div>
   </div>
 </div>
-<!-- end Position: Relative -->
+{{!-- end Position: Relative --}}
 
-<!-- Position: Absolute -->
+{{!-- Position: Absolute --}}
 <div class="layout__section">
   <div class="layout__header">
     <div class="layout__container">
-      Position: Absolute
+      <code>position: absolute</code>
     </div>
   </div>
 
@@ -128,11 +128,9 @@
         </p>
         <p>
           On the <b>Controls</b> section you can modify how the <code>top, right, left, bottom</code> properties are
-          set.
-          See how each value changes
-          how the element is positioned. <code>%</code> values are very useful whenever you need to rely on a value that
-          is relative to the
-          parent element's width or height without knowing the actual value.
+          set. See how each value changes how the element is positioned. <code>%</code> values are very useful whenever
+          you need to rely on a value that is relative to the parent element's width or height without knowing the
+          actual px value.
         </p>
       </div>
 
@@ -243,13 +241,89 @@
     </div>
   </div>
 </div>
-<!-- end Position: Absolute -->
+{{!-- end Position: Absolute --}}
 
-<!-- Position: Sticky -->
+{{!-- Position: Fixed --}}
 <div class="layout__section">
   <div class="layout__header">
     <div class="layout__container">
-      Position: Sticky
+      <code>position: fixed</code>
+    </div>
+  </div>
+
+  <div class="section" style="position: relative; z-index: {{this.fixedSectionZIndex}}">
+    <div class="layout__container">
+      <div class="section__header">
+        How does this work?
+      </div>
+
+      <div class="section__description">
+        <p>
+          Any element with <code>position: fixed</code> will be positioned relative to the viewport, which means it
+          stays in the same place even when the page is scrolled. Fixed elements are removed from the normal document
+          flow,
+          and no space is created for the element in the page layout.
+        </p>
+        <p>
+          The <code>top, right, bottom, left</code> properties can be used to position the element relative to the
+          viewport. Can also use <code>transform</code> property to easily change element's position on screen without
+          affecting sibling elements.
+        </p>
+        <p>
+          Controls below manipulates the value of <code>z-index</code> of this section, to show how a relative parent
+          <code>z-index</code> affects a <code>position: fixed</code> descendant.
+        </p>
+      </div>
+
+      <div class="section__body">
+        <div class="demo-container">
+          <div class="demo-item demo-item--base" style="max-width: 500px; max-height: 400px; overflow: auto;">
+            <div class="demo-item"
+                 style="height: 100px; width: 100px; max-width: none; background-color: darkcyan; color: white;">
+              Regular DIV
+            </div>
+
+            <div class="demo-item demo-item--fixed">
+              position: fixed
+            </div>
+
+            <div class="demo-item"
+                 style="height: 100px; width: 100px; max-width: none; background-color: darkgreen; color: white;">
+              Regular DIV
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section__controls">
+        <div class="section__controls__title">
+          Controls
+        </div>
+
+        <div class="section__controls__input">
+          <button class="section__button" type="button" {{on 'click' this.increaseSectionZIndex}}>
+            Increase Section Z-index
+          </button>
+
+          <button class="section__button" type="button" {{on 'click' this.decreaseSectionZIndex}}>
+            Decrease Section Z-index
+          </button>
+        </div>
+
+        <div class="section__controls__input">
+          Current Z-index value: {{this.fixedSectionZIndex}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{!-- end Position: Fixed --}}
+
+{{!-- Position: Sticky --}}
+<div class="layout__section">
+  <div class="layout__header">
+    <div class="layout__container">
+      <code>position: sticky</code>
     </div>
   </div>
 
@@ -280,13 +354,15 @@
       <div class="section__body">
         <div class="demo-container">
           <div class="demo-item demo-item--base" style="max-width: 500px; max-height: 400px; overflow: auto;">
-            <div class="demo-item" style="height: 100px; width: 1000px; max-width: none; background-color: black; color: white;">
+            <div class="demo-item"
+                 style="height: 100px; width: 1000px; max-width: none; background-color: black; color: white;">
               No sticky
             </div>
             <div class="demo-item demo-item--sticky">
               position: sticky
             </div>
-            <div class="demo-item" style="height: 1000px; width: 1000px; max-width: none; background-color: black; color: white;">
+            <div class="demo-item"
+                 style="height: 1000px; width: 1000px; max-width: none; background-color: black; color: white;">
               No sticky
             </div>
           </div>
@@ -295,4 +371,4 @@
     </div>
   </div>
 </div>
-<!-- end Position: Sticky -->
+{{!-- end Position: Sticky --}}
