@@ -13,6 +13,16 @@
   background: #f0f0f0;
 }
 
+.demo-item.demo-item--bg-a {
+  background: var(--background-color-example-1);
+  height: auto;
+}
+
+.demo-item.demo-item--bg-b {
+  background: var(--background-color-example-2);
+  height: auto;
+}
+
 .demo-item.demo-item--absolute {
   position: absolute;
   height: 100px;

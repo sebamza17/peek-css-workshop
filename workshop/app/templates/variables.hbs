@@ -1,0 +1,310 @@
+{{page-title "Variables"}}
+
+<!-- variable basics -->
+<div class="layout__section">
+  <div class="layout__header">
+    <div class="layout__container">
+      CSS Custom Properties: CSS native variables
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="layout__container">
+      <div class="section__header">
+        Powerful CSS Variables
+      </div>
+
+      <div class="section__description">
+        <p>
+          CSS Custom Properties are a way to define variables in CSS.
+        </p>
+        <p>
+          They are set using custom property notation <code>--main-color: black;</code>
+        </p>
+        <p>
+          accessed using the var() function <code>color: var(--main-color)</code>
+        </p>
+        <p>
+          CSS Custom Properties are dynamic and cascade like other CSS properties. SCSS/less variables are static and do
+          not cascade. This means that you can change the value of a CSS Custom Property at runtime, without the need to
+          run a SCSS/less compiler to generate new CSS.
+        </p>
+      </div>
+
+      <div class="section__body">
+        <div class="demo-container">
+          <div class="demo-item" style="width: 500px;">
+            <div class="demo-item demo-item--base">
+              <div class="demo-item demo-item--bg-a" style="width: 100%; height: 50%; padding: 16px;">
+                <code>
+                  This uses <code>background-color: var(--background-color-example-1)</code>
+                </code>
+              </div>
+              <div class="demo-item demo-item--bg-b" style="width: 100%; height: 50%; padding: 16px;">
+                <code>
+                  This uses <code>background-color: var(--background-color-example-2)</code>
+                </code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section__controls">
+        <div class="section__controls__title">
+          Controls
+        </div>
+
+        <div class="section__controls__input">
+          <label for="color-1">
+            Update <code>--background-color-example-1</code>
+
+            <input
+              id="color-1"
+              type="color"
+              value={{this.backgroundColorExample1}}
+              {{on 'input' (fn this.updateColor '--background-color-example-1')}}
+            >
+          </label>
+        </div>
+
+        <div class="section__controls__input">
+          <label for="color-2">
+            Update <code>--background-color-example-2</code>
+            <input
+              id="color-1"
+              type="color"
+              value={{this.backgroundColorExample2}}
+              {{on 'input' (fn this.updateColor '--background-color-example-2')}}
+            >
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end variable basics -->
+
+<!-- variable cascade -->
+<div class="layout__section">
+  <div class="layout__header">
+    <div class="layout__container">
+      Cascade on CSS Variables
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="layout__container">
+      <div class="section__header">
+        ℹ️ Using the <code>:root</code> pseudo-class
+      </div>
+
+      <div class="section__description">
+        <p>
+          As with any other CSS property, <code>Custom Properties</code> also cascade down the DOM tree. This means that
+          if you define a variable on the <code>:root</code> pseudo-class, it will be available to all elements in the
+          document.
+        </p>
+        <p>
+          If you inspect this page, you will see that the <code>:root</code> pseudo-class is used to define this app's
+          custom properties. This way, these variables are available to all elements in the document, everywhere in the
+          app.
+        </p>
+      </div>
+
+      <div class="section__header">
+        ℹ️ Using <code>style</code> attribute
+      </div>
+
+      <div class="section__description">
+        <p>
+          As custom properties cascade, you can override them by setting them on an element with the <code>style</code>
+          attribute, without changing its value everywhere else.
+        </p>
+        <p>
+          This is useful when you want to change a variable for a specific element, without the worry of affecting other
+          instances of the same element, or other elements that use the same variable.
+        </p>
+
+        <p>
+          Note how using the controls below do not update the <code>style override</code> for
+          <code>var(--background-color-example-1)</code>
+        </p>
+      </div>
+
+      <div class="section__body">
+        <div class="demo-container">
+          <div class="demo-item" style="width: 500px;">
+            <div class="demo-item demo-item--base">
+              <div class="demo-item demo-item--bg-a"
+                   style="width: 100%; height: 50%; padding: 16px; --background-color-example-1: black;">
+                <code>
+                  This uses <code>background-color: var(--background-color-example-1)</code>, but with a
+                  <code>style</code>
+                  override
+                </code>
+              </div>
+
+              <div class="demo-item demo-item--bg-a" style="width: 100%; height: 50%; padding: 16px;">
+                <code>
+                  This uses <code>background-color: var(--background-color-example-1)</code>
+                </code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section__controls">
+        <div class="section__controls__title">
+          Controls
+        </div>
+
+        <div class="section__controls__input">
+          <label for="color-1">
+            Update <code>--background-color-example-1</code>
+
+            <input
+              id="color-1"
+              type="color"
+              value={{this.backgroundColorExample1}}
+              {{on 'input' (fn this.updateColor '--background-color-example-1')}}
+            >
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end variable benefits -->
+
+<!-- variable manipulation -->
+<div class="layout__section">
+  <div class="layout__header">
+    <div class="layout__container">
+      Manipulating CSS Custom properties with JS
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="layout__container">
+      <div class="section__header">
+        Simpler browser APIs for manipulating CSS Custom Properties
+      </div>
+
+      <div class="section__description">
+        <p>
+          Custom properties can be manipulated at run time (as visible on the examples above). This can be done using
+          JS, and the browser APIs for manipulating CSS Custom Properties are simple and easy to use.
+        </p>
+
+        <div class="section__header">
+          Setting a custom property
+        </div>
+
+        <div class="section__description">
+          <p>
+            <code>
+              document.documentElement.style.setProperty(propertyName: string, value: string)
+            </code>
+          </p>
+
+          <ul>
+            <li>
+              <b>propertyName</b>: string - the name of the custom property to set, if the name already exists, will
+              override its value.
+            </li>
+            <li>
+              <b>value</b>: string - the value to set the custom property to. As this is a CSS value, its type is
+              string.
+            </li>
+          </ul>
+        </div>
+
+        <div class="section__header">
+          Getting a custom property value
+        </div>
+
+        <div class="section__description">
+          <p>
+            <code>
+              getComputedStyle(document.documentElement).getPropertyValue(variableName: string))
+            </code>
+          </p>
+
+          <ul>
+            <li>
+              <b>variableName</b>: string - the name of the target custom property
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end variable manipulation -->
+
+<!-- variable manipulation 2 -->
+<div class="layout__section">
+  <div class="layout__header">
+    <div class="layout__container">
+      Any value can be a custom property
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="layout__container">
+      <div class="section__header">
+        Flexibility of CSS Custom Properties
+      </div>
+
+      <div class="section__description">
+        <p>
+          Custom properties can contain any value used on CSS. This means that you can use them to store complex values,
+          like gradients, shadows, or even other custom properties.
+        </p>
+
+        <p>
+          On the controls below, you can rotate (in 3d)the example div
+        </p>
+      </div>
+
+      <div class="section__body">
+        <div class="demo-container">
+          <div class="demo-item" style="width: 500px;">
+            <div class="demo-item demo-item--base">
+              <div class="demo-item demo-item--bg-a"
+                   style="width: 100%; height: 50%; padding: 16px; transform: perspective(400px) rotateY(var(--layout-rotate-Y));">
+                <code>
+                  This will change this div rotation using <code>transform: rotateY(var--layout-rotate-Y))</code>
+                </code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section__controls">
+        <div class="section__controls__title">
+          Controls
+        </div>
+
+        <div class="section__controls__input">
+          <label for="layout-x">
+            Update Layout Rotate
+
+            <input
+              id="layout-x"
+              type="range"
+              name="layout-x-position"
+              min={{this.sliderConfig.range.min}}
+              max={{this.sliderConfig.range.max}}
+              oninput={{action this.updateLayoutRotateY}}
+            />
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end variable manipulation -->

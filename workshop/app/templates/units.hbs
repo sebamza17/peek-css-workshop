@@ -1,0 +1,323 @@
+{{page-title "Units"}}
+
+<!-- absolute units -->
+<div class="layout__section">
+  <div class="layout__header">
+    <div class="layout__container">
+      Absolute units
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="layout__container">
+      <div class="section__header">
+        <code>px</code> is king
+      </div>
+
+      <div class="section__description">
+        <p>
+          Absolute units are units tied to real life measurements, such as <code>cm</code>, <code>mm</code>,
+          <code>in</code>, <code>pt</code> and <code>pc</code>
+        </p>
+        <p>
+          <code>px</code> is the only widely used unit on screen UIs. Other units can be useful when printing or
+          when the physical size of the output is known.
+        </p>
+      </div>
+
+      <div class="section__body">
+        <div class="demo-container">
+          <div class="demo-item" style="width: 500px;">
+            <div class="demo-item demo-item--base">
+              <div class="demo-item demo-item--bg-b" style="width: 200px;">
+                <code>width: 200px</code>
+              </div>
+
+              <div class="demo-item demo-item--bg-a" style="width: 5cm;">
+                <code>width: 5cm</code>
+              </div>
+
+              <div class="demo-item demo-item--bg-b" style="width: 100pt;">
+                <code>width: 100pt</code>
+              </div>
+
+              <div class="demo-item demo-item--bg-a" style="width: 50mm;">
+                <code>width: 50mm</code>
+              </div>
+
+              <div class="demo-item demo-item--bg-b" style="width: 2in;">
+                <code>width: 2in</code>
+              </div>
+
+              <div class="demo-item demo-item--bg-a" style="width: 10pc;">
+                <code>width: 10pc</code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end absolute units -->
+
+<!-- relative units -->
+<div class="layout__section">
+  <div class="layout__header">
+    <div class="layout__container">
+      Relative units
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="layout__container">
+      <div class="section__header">
+        <code>em</code> and <code>rem</code>
+      </div>
+
+      <div class="section__description">
+        <p>
+          Both <code>em</code> and <code>rem</code> are relative units that uses <code>font-size</code> from their
+          relative target as base unit for their own calculations.
+        </p>
+        <p>
+          <code>em</code> uses its parent element <code>font-size</code> as base unit, while <code>rem</code> uses the
+          root element <code>font-size</code> as base unit.
+        </p>
+        <p>
+          On the example below, the parent element has a <code>font-size</code> of <code>16px</code>, so
+          <code>1em</code>
+          is equal to <code>16px</code>. The child element has a <code>font-size</code> of <code>1.5em</code>, so its
+          <code>font-size</code> is <code>24px</code>.
+        </p>
+        <p>
+          On the <b>Controls</b> section, you can manipulate the <code>font-size</code> property value from the
+          <code>html</code> element on this page, and see how it affects the <code>em</code> and <code>rem</code> units.
+        </p>
+      </div>
+
+      <div class="section__body">
+        <div class="demo-container">
+          <div class="demo-item" style="width: 500px;">
+            <div class="demo-item demo-item--base" style="font-size: 10px;">
+              Parent Element: <code>font-size: 10px;</code>
+
+              <div class="demo-item demo-item--bg-b" style="font-size: 2em;">
+                <code>font-size: 2em;</code>
+              </div>
+
+              <div class="demo-item demo-item--bg-a" style="font-size: 2rem;">
+                <code>font-size: 2rem;</code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section__controls" style="font-size: 16px;">
+        <div class="section__controls__title">
+          Controls
+        </div>
+
+        <div class="section__controls__input">
+          <button class="section__button" type="button" {{on 'click' this.increaseHtmlFontSize}}>
+            Increase <code>html</code> font-size by 1px
+          </button>
+
+          <button class="section__button" type="button" {{on 'click' this.decreaseHtmlFontSize}}>
+            Decrease <code>html</code> font-size by 1px
+          </button>
+
+          <button class="section__button" type="button" {{on 'click' this.resetValues}}>
+            Reset
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end relative units -->
+
+<!-- viewport units -->
+<div class="layout__section">
+  <div class="layout__header">
+    <div class="layout__container">
+      Viewport units
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="layout__container">
+      <div class="section__header">
+        <code>vh</code> and <code>vw</code>
+      </div>
+
+      <div class="section__description">
+        <p>
+          Viewport units are relative units that uses the viewport dimensions as base unit for their own calculations.
+        </p>
+        <p>
+          <code>1vh</code> is equal to 1% of the viewport height, while <code>1vw</code> is equal to 1% of the viewport
+          width.
+        </p>
+      </div>
+
+      <div class="section__body">
+        <div class="demo-container">
+          <div class="demo-item">
+            <div class="demo-item demo-item--base" style="width: 50vw; max-width: none;">
+              <code>width: 50vw;</code>
+
+              <div class="demo-item demo-item--bg-b" style="height: 10vh;">
+                <code>height: 10vh</code>
+              </div>
+
+              <div class="demo-item demo-item--bg-a" style="height: 5vh;">
+                <code>height: 5vh</code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section__controls" style="font-size: 16px;">
+        <div class="section__controls__title">
+          Controls
+        </div>
+
+        <p>Manipulate your browser window to see how these values change.</p>
+
+        <div class="section__controls__input">
+          <div>
+            Current Viewport Width: {{this.viewportWidth}}px
+            <br>
+            <small>Refresh the page to update this value</small>
+          </div>
+
+          <div>
+            Current Viewport Height: {{this.viewportHeight}}px
+            <br>
+            <small>Refresh the page to update this value</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end viewport units -->
+
+<!-- large viewport units -->
+<div class="layout__section">
+  <div class="layout__header">
+    <div class="layout__container">
+      Large Viewport units
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="layout__container">
+      <div class="section__header">
+        <code>lvh</code> and <code>lvw</code>
+      </div>
+
+      <div class="section__description">
+        <p>
+          Large Viewport units are relative units that uses the large viewport dimensions as base unit for their own
+          calculations.
+        </p>
+        <p>
+          Large Viewport is the largest possible viewport for a given browser.
+        </p>
+        <p>
+          <code>1lvh</code> is equal to 1% of the large viewport height, while <code>1lvw</code> is equal to 1% of the
+          large viewport width.
+        </p>
+        <p>
+          Large Viewport units are useful whenever working on mobile devices, where browser UI can be expanded or
+          shrunk while scroll happens.
+        </p>
+        <p>
+          On desktop, in general, browsers do not change their UI size, so <code>lvh</code> and <code>lvw</code> will
+          behave the same as <code>vh</code> and <code>vw</code>.
+        </p>
+      </div>
+
+      <div class="section__body">
+        <div class="demo-container">
+          <div class="demo-item">
+            <div class="demo-item demo-item--base" style="width: 50vw; max-width: none;">
+              <code>width: 50lvw;</code>
+
+              <div class="demo-item demo-item--bg-b" style="height: 10vh;">
+                <code>height: 10lvh</code>
+              </div>
+
+              <div class="demo-item demo-item--bg-a" style="height: 5vh;">
+                <code>height: 5lvh</code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end large viewport units -->
+
+<!-- small viewport units -->
+<div class="layout__section">
+  <div class="layout__header">
+    <div class="layout__container">
+      Small Viewport units
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="layout__container">
+      <div class="section__header">
+        <code>svh</code> and <code>svw</code>
+      </div>
+
+      <div class="section__description">
+        <p>
+          Small Viewport units are relative units that uses the small viewport dimensions as base unit for their own
+          calculations.
+        </p>
+        <p>
+          Small Viewport is the smallest possible viewport for a given browser.
+        </p>
+        <p>
+          <code>1svh</code> is equal to 1% of the small viewport height, while <code>1svw</code> is equal to 1% of the
+          small viewport width.
+        </p>
+        <p>
+          small Viewport units are useful whenever working on mobile devices, where browser UI can be expanded or
+          shrunk while scroll happens.
+        </p>
+        <p>
+          On desktop, in general, browsers do not change their UI size, so <code>svh</code> and <code>svw</code> will
+          behave the same as <code>vh</code> and <code>vw</code>.
+        </p>
+      </div>
+
+      <div class="section__body">
+        <div class="demo-container">
+          <div class="demo-item">
+            <div class="demo-item demo-item--base" style="width: 50vw; max-width: none;">
+              <code>width: 50lvw;</code>
+
+              <div class="demo-item demo-item--bg-b" style="height: 10vh;">
+                <code>height: 10lvh</code>
+              </div>
+
+              <div class="demo-item demo-item--bg-a" style="height: 5vh;">
+                <code>height: 5lvh</code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end small viewport units -->

@@ -10,13 +10,18 @@
   --color-text: #333;
   --color-border: #cbcbcb;
   --color-absolute: #ff5833;
+  --background-color-example-1: #b3d4fc;
+  --background-color-example-2: #FFE4C4;
   --sidenav-width: 240px;
   --section-z-index: 2;
   --section-padding: 16px;
+
+  --layout-rotate-Y: 0deg;
 }
 
 html {
   color: var(--color-text);
+  font-size: 16px;
 }
 
 .layout {

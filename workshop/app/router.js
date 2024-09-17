@@ -9,5 +9,7 @@ export default class Router extends EmberRouter {
 Router.map(function () {
   this.route('index', { path: '/' });
   this.route('position');
+  this.route('variables');
+  this.route('units');
   this.route('zindex');
 });
