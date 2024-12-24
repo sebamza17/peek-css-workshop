@@ -1,0 +1,208 @@
+{{page-title "Transitions"}}
+
+<!-- transition basics -->
+<div class="layout__section">
+  <div class="layout__header">
+    <div class="layout__container">
+      CSS Transition Basics
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="layout__container">
+      <div class="section__header">
+        Manipulate CSS properties
+      </div>
+
+      <div class="section__description">
+        <p>
+          The CSS <code>transition</code> property allows you to change property values smoothly over a specified
+          duration. It is useful for creating animations and making your web pages more interactive.
+        </p>
+        <p>
+          <b>Transition Property</b>: Specifies the CSS property you want to animate.
+        </p>
+        <p>
+          <b>Duration</b>: Specifies how long the transition should take.
+        </p>
+        <p>
+          <b>Timing Function</b>: Specifies the speed curve of the transition (e.g., ease, linear, ease-in, ease-out).
+        </p>
+        <p>
+          <b>Delay</b>: Specifies a delay before the transition starts (optional).
+        </p>
+
+        <br>
+
+        <p>
+          On the controls below, you can update the <code>background-color</code> property of Box A. Notice how the
+          color changes with a transition instead of immediately changing. This is the effect of the transition
+          <code>transition: background-color 1s linear;</code>
+        </p>
+      </div>
+
+      <div class="section__body">
+        <div class="demo-container">
+          <div class="demo-item" style="width: 500px;">
+            <div class="demo-item demo-item--base">
+              <div
+                class="demo-item demo-item--bg-a"
+                style="width: 100%; height: 50%; padding: 16px; transition: background-color 1s linear; background: {{this.backgroundColor}}"
+              >
+                Box A
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section__controls">
+        <div class="section__controls__title">
+          Controls
+        </div>
+
+        <div class="section__controls__input">
+          <label for="color-1">
+            Update <code>background color</code> from Box A
+
+            <input
+              id="color-1"
+              type="color"
+              value={{this.backgroundColor}}
+              {{on 'input' this.updateBackgroundColor}}
+            >
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end transition basics -->
+
+<!-- transition properties -->
+<div class="layout__section">
+  <div class="layout__header">
+    <div class="layout__container">
+      Not all properties can be transitioned
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="layout__container">
+      <div class="section__header">
+        Transition has limitations
+      </div>
+
+      <div class="section__description">
+        <p>
+          Not all CSS properties can be transitioned. Only properties that have an identifiable halfway point can be
+          transitioned. For example, you can transition <code>width</code> but not <code>display</code>.
+        </p>
+        <ul>
+          <li>
+            <b>display</b>: This property cannot be transitioned because it does not have intermediate states.
+          </li>
+
+          <li>
+            <b>visibility</b>: Similar to display, it does not have intermediate states.
+          </li>
+
+          <li>
+            <b>position</b>: Properties like static, relative, absolute, and fixed cannot be transitioned.
+          </li>
+
+          <li>
+            <b>float</b>: This property does not support transitions.
+          </li>
+
+          <li>
+            <b>height</b>: This property is transitionable, but it requires both defined initial and final values.
+            It cannot be transitioned if it uses the <code>auto</code> value.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end variable basics -->
+
+<!-- advanced transitions -->
+<div class="layout__section">
+  <div class="layout__header">
+    <div class="layout__container">
+      Complex Transitions
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="layout__container">
+      <div class="section__header">
+        Transition everything!
+      </div>
+
+      <div class="section__description">
+        <p>
+          You can transition multiple properties at a time, with different times, delays, and timing functions.
+        </p>
+        <p>
+          <code>transition: background-color .2s ease, border-color .5s linear;</code>
+        </p>
+        <p>
+          The example above defines a transition that will update both <code>background-color</code> and
+          <code>border-color</code> properties. The <code>background-color</code> will transition in 0.2 seconds with
+          an ease timing function, while the <code>border-color</code> will transition in 0.5 seconds with a linear
+          timing function.
+        </p>
+        <p>
+          This means that you can create complex animations by transitioning multiple properties at once, potentially
+          creating any effect you might need. This is specially useful on <code>:hover</code> transitions when more than
+          a single property needs to change.
+        </p>
+
+        <br>
+
+        <p>
+          On the controls below, you can change the values of background-color, border-color and transform with
+          different timings and animation functions. Inspect the code to see the <code>transition.</code>
+        </p>
+      </div>
+
+      <div class="section__body">
+        <div class="demo-container">
+          <div class="demo-item" style="width: 500px;">
+            <div class="demo-item demo-item--base">
+              <div
+                class="demo-item demo-item--bg-a"
+                style="
+                  position: relative;
+                  width: 100%;
+                  height: 50%;
+                  padding: 16px;
+                  border: 4px solid black;
+                  z-index: 10;
+                  transition: background-color 1s linear, border-color .2s ease, transform .5s ease;
+                  {{this.transitionExample}}
+                  "
+              >
+                Box B
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section__controls">
+        <div class="section__controls__title">
+          Controls
+        </div>
+
+        <div class="section__controls__input">
+          <button class="section__button" type="button" {{on 'click' this.toggleTransitionExample}}>
+            Toggle Transition
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end advanced transitions -->

@@ -1,0 +1,209 @@
+{{page-title "Animations"}}
+
+<!-- animations -->
+<div class="layout__section">
+  <div class="layout__header">
+    <div class="layout__container">
+      CSS Animations
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="layout__container">
+      <div class="section__header">
+        Intro
+      </div>
+
+      <div class="section__description">
+        <p>
+          CSS Animations provide more control over the animation process. You can define keyframes and control the
+          animation duration, timing function, and delay.
+        </p>
+
+        <p>
+          <code>animation</code> requires a <code>keyframes</code> definition to work. The keyframes define the
+          animation sequence in CSS.
+        </p>
+
+        <div class="section__header">
+          Keyframes
+        </div>
+
+        <p>
+          The <code>@keyframes</code> CSS at-rule controls the intermediate steps in a CSS animation sequence by defining styles for
+          keyframes (or waypoints) along the animation sequence. This gives more control over the intermediate steps of
+          the animation sequence than transitions.
+        </p>
+
+        <div>
+          <b>Keyframes example</b>
+
+          <p>
+            <code>
+              @keyframes slidein {
+              from {
+              transform: translateX(0);
+              }
+              to {
+              transform: translateX(100%);
+              }
+              }
+            </code>
+          </p>
+        </div>
+
+        <p>
+          On the <code>keyframes</code> example above, the animation will move the element from its original position
+          to 100% of its width to the right. "from" and "to" are the starting and ending points of the animation.
+        </p>
+
+        <p>
+          These starting and ending points can be defined with percentages, allowing for more complex animations.
+        </p>
+
+        <div>
+          <b>Keyframes with percentages example:</b>
+
+          <div>
+            <code>
+              @keyframes slidein {
+              <br>
+              0% {
+              <br>
+              transform: translateX(0);
+              <br>
+              }
+              <br>
+              50% {
+              <br>
+              transform: translateX(50%);
+              <br>
+              }
+              <br>
+              100% {
+              <br>
+              transform: translateX(100%);
+              <br>
+              }
+              <br>
+              }
+            </code>
+          </div>
+        </div>
+      </div>
+
+      <div class="section__body">
+        <div class="demo-container">
+          <div class="demo-item">
+            <div class="demo-sun-animation-container {{if this.sunAnimationEnabled
+                                                          'demo-sun-animation-container--animated'}}">
+              <div class="demo-sun-animation {{if this.sunAnimationEnabled 'demo-sun-animation--animated'}}">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section__controls">
+        <div class="section__controls__title">
+          Controls
+        </div>
+
+        <div class="section__controls__input">
+          <button class="section__button" type="button" {{on 'click' this.toggleSunAnimation}}>
+            Toggle Animation
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end animations -->
+
+<!-- animation properties -->
+<div class="layout__section">
+  <div class="layout__header">
+    <div class="layout__container">
+      Animation Properties
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="layout__container">
+      <div class="section__header">
+        Properties
+      </div>
+
+      <div class="section__description">
+        <p>
+          The <code>animation</code> property is a shorthand property for all animation properties (e.g.,
+          animation-name,
+          animation-duration, animation-timing-function, animation-delay, animation-iteration-count,
+          animation-direction,
+          animation-fill-mode, animation-play-state).
+        </p>
+
+        <p>
+          <b>Keyframes</b>: Define the animation sequence with keyframes.
+        </p>
+
+        <p>
+          <b>Duration</b>: Specifies how long the animation should take.
+        </p>
+
+        <p>
+          <b>Timing Function</b>: Specifies the speed curve of the animation (e.g., ease, linear, ease-in, ease-out).
+        </p>
+
+        <p>
+          <b>Delay</b>: Specifies a delay before the animation starts (optional).
+        </p>
+
+        <p>
+          <b>Iteration Count</b>: Specifies the number of times an animation should run.
+        </p>
+
+        <p>
+          <b>Direction</b>: Specifies whether the animation should play in reverse on alternate cycles.
+        </p>
+
+        <p>
+          <b>Fill Mode</b>: Specifies what values are applied by the animation outside the time it is executing.
+        </p>
+
+        <p>
+          <b>Play State</b>: Specifies whether the animation is running or paused.
+        </p>
+
+        <p>
+          <b>Animation Name</b>: Specifies the name of the animation.
+        </p>
+
+        <p>
+          <b>Animation Delay</b>: Specifies a delay for the start of the animation.
+        </p>
+
+        <p>
+          <b>Animation Direction</b>: Specifies whether the animation should play in reverse on alternate cycles.
+        </p>
+
+        <p>
+          <b>Animation Duration</b>: Specifies how long the animation should take to complete one cycle.
+        </p>
+
+        <p>
+          <b>Animation Fill Mode</b>: Specifies a style for the element when the animation is not playing.
+        </p>
+
+        <p>
+          <code>animation: 3s ease-in 1s infinite reverse both running slidein;</code>
+        </p>
+
+        <p>
+          On the controls below, you can manipulate some properties for the <code>pikachu</code> animation.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end animation properties -->

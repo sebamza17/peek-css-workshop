@@ -109,3 +109,57 @@
 
   top: -30px;
 }
+
+.demo-sun-animation-container {
+  overflow: hidden;
+  height: 300px;
+  width: 100%;
+  background-color: skyblue;
+}
+
+.demo-sun-animation-container.demo-sun-animation-container--animated {
+  animation: 4s linear 0s infinite alternate sky-color;
+}
+
+.demo-sun-animation {
+  background-color: yellow;
+  border-radius: 50%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.demo-sun-animation.demo-sun-animation--animated {
+  animation: 4s linear 0s infinite alternate sunset-sunrise;
+}
+
+@keyframes sky-color {
+  0% {
+    background-color: midnightblue;
+  }
+  10% {
+    background-color: orangered;
+  }
+  50% {
+    background-color: deepskyblue;
+  }
+  75% {
+    background-color: lightskyblue;
+  }
+  100% {
+    background-color: skyblue;
+  }
+}
+
+@keyframes sunset-sunrise {
+  from {
+    transform: translateY(100%);
+    background-color: orangered;
+    filter: brightness(75%);
+  }
+  to {
+    transform: translateY(0);
+    background-color: orange;
+  }
+}
