@@ -1,6 +1,6 @@
 import BaseController from './BaseController';
-import {tracked} from '@glimmer/tracking';
-import {action} from '@ember/object';
+import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
 
 export default class PositionController extends BaseController {
   @tracked absoluteRangeValueTop = 'unset';
@@ -41,15 +41,15 @@ export default class PositionController extends BaseController {
 
   @action
   increaseSectionZIndex() {
-    this.fixedSectionZIndex++
+    this.fixedSectionZIndex++;
   }
 
   @action
   decreaseSectionZIndex() {
     if (this.fixedSectionZIndex <= 0) {
-      return
+      return;
     }
 
-    this.fixedSectionZIndex--
+    this.fixedSectionZIndex--;
   }
 }

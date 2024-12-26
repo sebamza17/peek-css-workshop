@@ -14,4 +14,5 @@ Router.map(function () {
   this.route('variables');
   this.route('units');
   this.route('zindex');
+  this.route('display');
 });

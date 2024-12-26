@@ -1,6 +1,6 @@
 import Controller from '@ember/controller';
-import {tracked} from "@glimmer/tracking";
-import {action} from "@ember/object";
+import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
 
 export default class UnitsController extends Controller {
   get viewportWidth() {
@@ -14,7 +14,9 @@ export default class UnitsController extends Controller {
   @action
   resetValues() {
     const htmlElement = document.querySelector('html');
-    const currentFontSize = parseInt(window.getComputedStyle(htmlElement).fontSize);
+    const currentFontSize = parseInt(
+      window.getComputedStyle(htmlElement).fontSize,
+    );
     htmlElement.style.fontSize = '16px';
   }
 
@@ -22,7 +24,9 @@ export default class UnitsController extends Controller {
   @action
   increaseHtmlFontSize() {
     const htmlElement = document.querySelector('html');
-    const currentFontSize = parseInt(window.getComputedStyle(htmlElement).fontSize);
+    const currentFontSize = parseInt(
+      window.getComputedStyle(htmlElement).fontSize,
+    );
     htmlElement.style.fontSize = `${currentFontSize + 1}px`;
   }
 
@@ -30,7 +34,9 @@ export default class UnitsController extends Controller {
   @action
   decreaseHtmlFontSize() {
     const htmlElement = document.querySelector('html');
-    const currentFontSize = parseInt(window.getComputedStyle(htmlElement).fontSize);
+    const currentFontSize = parseInt(
+      window.getComputedStyle(htmlElement).fontSize,
+    );
     htmlElement.style.fontSize = `${currentFontSize - 1}px`;
   }
 }

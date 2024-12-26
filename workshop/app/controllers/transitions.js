@@ -14,7 +14,8 @@ export default class TransitionsController extends BaseController {
   @action
   toggleTransitionExample() {
     if (this.transitionExample === '') {
-      this.transitionExample = 'background-color: aquamarine; border-color: pink; transform: scale(1.2)';
+      this.transitionExample =
+        'background-color: aquamarine; border-color: pink; transform: scale(1.2)';
     } else {
       this.transitionExample = '';
     }

@@ -1,0 +1,369 @@
+{{page-title "Display"}}
+
+{{!-- Display: block --}}
+<div class="layout__section">
+  <div class="layout__header">
+    <div class="layout__container">
+      <code>display: block</code>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="layout__container">
+      <div class="section__header">
+        How does this work?
+      </div>
+
+      <div class="section__description">
+        <p>
+          <code>display: block</code> is the default value for most elements. It will make the element behave like a
+          block-level element. This means that the element will take up the full width of the parent element and will
+          start on a new line.
+        </p>
+
+        <p>
+          Notice how in the example below, there are two boxes that could be side by side, but because they are block
+          elements, they are stacked on top of each other.
+        </p>
+      </div>
+
+      <div class="section__body">
+        <div class="demo-container" style="background: lightgray;">
+          <div class="demo-item" style="width: 500px;">
+            <div class="demo-item demo-item--base" style="width: 40%;">
+              <div class="demo-item demo-item--block" style="background: indianred;">
+                Box A
+              </div>
+            </div>
+
+          </div>
+          <div class="demo-item" style="width: 500px;">
+            <div class="demo-item demo-item--base" style="width: 40%;">
+              <div class="demo-item demo-item--block" style="background: mediumaquamarine;">
+                Box B
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{!-- end Display: block --}}
+
+{{!-- Display: inline --}}
+<div class="layout__section">
+  <div class="layout__header">
+    <div class="layout__container">
+      <code>display: inline</code>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="layout__container">
+      <div class="section__header">
+        How does this work?
+      </div>
+
+      <div class="section__description">
+        <p>
+          <code>display: inline</code> is the default value for some elements. It will make the element behave like an
+          inline element. This means that the element will only take up as much width as necessary and will not start on
+          a new line.
+        </p>
+
+        <p>
+          Notice how in the example below, elements are not affected by <code>width</code> and are displayed inline.
+        </p>
+
+        <p>
+          There are other properties that do not affect <code>display: inline</code> elements, such as
+          <code>margin</code> and <code>width</code>. For margin, inline elements needs to use
+          <code>margin-inline</code>.
+        </p>
+      </div>
+
+      <div class="section__body">
+        <div class="demo-container" style="background: lightgray;">
+          <div class="demo-item demo-item--inline" style="width: 500px; background: indianred;">
+            Box A
+          </div>
+
+          <div class="demo-item demo-item--inline" style="width: 500px; background: mediumaquamarine;">
+            Box B
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{!-- end Display: inline --}}
+
+{{!-- Display: inline-block --}}
+<div class="layout__section">
+  <div class="layout__header">
+    <div class="layout__container">
+      <code>display: inline-block</code>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="layout__container">
+      <div class="section__header">
+        How does this work?
+      </div>
+
+      <div class="section__description">
+        <p>
+          <code>display: inline-block</code> is a combination of <code>display: inline</code> and <code>display:
+          block</code>.
+          It will make the element behave like an inline element, but you can also set the width and height of the
+          element.
+        </p>
+
+        <p>
+          Notice how in the example below, both boxes are displayed inline, but you can set the width and height of each
+          element.
+        </p>
+      </div>
+
+      <div class="section__body">
+        <div class="demo-container" style="background: lightgray;">
+          <div class="demo-item demo-item--inline-block" style="width: 500px; background: indianred;">
+            Box A
+          </div>
+
+          <div class="demo-item demo-item--inline-block" style="width: 500px; background: mediumaquamarine;">
+            Box B
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{!-- end Display: inline-block --}}
+
+{{!-- Display: flex --}}
+<div class="layout__section layout__section--flex-demo">
+  <div class="layout__header">
+    <div class="layout__container">
+      <code>display: flex</code>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="layout__container">
+      <div class="section__header">
+        How does this work?
+      </div>
+
+      <div class="section__description">
+        <p>
+          <code>display: flex</code> is a layout model that allows elements to align and distribute space within a
+          container. It is a powerful layout model that can be used to create complex layouts.
+        </p>
+
+        <p>
+          Notice how in the example below, both boxes are displayed inside a flex layout. You can set the width and
+          height of each element, and you can also align and distribute space within the container.
+        </p>
+
+        <p>
+          Check the controls below to change different flex-box properties and see how children element behave
+        </p>
+      </div>
+
+      <div class="section__body">
+        <div
+          class="demo-container demo-container--flex"
+          style="
+            height: 500px;
+            background: lightgray;
+            align-items: {{this.alignItems}};
+            flex-direction: {{this.flexDirection}};
+            justify-content: {{this.justifyContent}};
+            "
+        >
+          <div class="demo-item demo-item--block" style="height: 100px; width: 100px; background: indianred;">
+            Box A
+          </div>
+
+          <div class="demo-item demo-item--block" style="height: 100px; width: 100px; background: mediumaquamarine;">
+            Box B
+          </div>
+
+          <div class="demo-item demo-item--block" style="height: 100px; width: 100px; background: greenyellow;">
+            Box C
+          </div>
+
+          <div class="demo-item demo-item--block" style="height: 100px; width: 100px; background: deeppink;">
+            Box D
+          </div>
+
+          <div class="demo-item demo-item--block" style="height: 100px; width: 100px; background: skyblue;">
+            Box E
+          </div>
+
+          <div class="demo-item demo-item--block" style="height: 100px; width: 100px; background: teal;">
+            Box F
+          </div>
+
+          <div class="demo-item demo-item--block" style="height: 100px; width: 100px; background: royalblue;">
+            Box G
+          </div>
+
+          <div class="demo-item demo-item--block" style="height: 100px; width: 100px; background: mediumpurple;">
+            Box H
+          </div>
+        </div>
+
+        <div class="section__controls">
+          <div class="section__controls__title">
+            Controls
+          </div>
+
+          <div class="section__controls__input section__controls__input--inline">
+            <select name="flex-direction" {{on 'input' this.updateFlexDirection}}>
+              <option>flex-direction</option>
+              <option value="row">flex-direction: row</option>
+              <option value="row-reverse">flex-direction: row-reverse</option>
+              <option value="column">flex-direction: column</option>
+              <option value="column-reverse">flex-direction: column-reverse</option>
+            </select>
+          </div>
+
+          <div class="section__controls__input section__controls__input--inline">
+            <select name="justify-content" {{on 'input' this.updateJustifyContent}}>
+              <option>justify-content</option>
+              <option value="flex-start">justify-content: flex-start</option>
+              <option value="flex-end">justify-content: flex-end</option>
+              <option value="center">justify-content: center</option>
+              <option value="baseline">justify-content: baseline</option>
+              <option value="stretch">justify-content: stretch</option>
+              <option value="space-between">justify-content: space-between</option>
+              <option value="space-around">justify-content: space-around</option>
+              <option value="space-evenly">justify-content: space-evenly</option>
+            </select>
+          </div>
+
+          <div class="section__controls__input section__controls__input--inline">
+            <select name="align-items" {{on 'input' this.updateAlignItems}}>
+              <option>align-items</option>
+              <option value="flex-start">align-items: flex-start</option>
+              <option value="flex-end">align-items: flex-end</option>
+              <option value="center">align-items: center</option>
+              <option value="baseline">align-items: baseline</option>
+              <option value="stretch">align-items: stretch</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{!-- end Display: flex --}}
+
+{{!-- flex items --}}
+<div class="layout__section layout__section--flex-demo">
+  <div class="layout__header">
+    <div class="layout__container">
+      flex-item properties
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="layout__container">
+      <div class="section__header">
+        Flex items are also affected by flex properties
+      </div>
+
+      <div class="section__description">
+        <p>
+          There are several CSS properties that can be applied to flex items. These properties can be used to control
+          the size, order, and alignment of flex items.
+        </p>
+      </div>
+
+      <div class="section__body">
+        <div
+          class="demo-container demo-container--flex"
+          style="height: 500px; background: lightgray;"
+        >
+          <div
+            class="demo-item demo-item--block demo-item--no-width"
+            style="
+              min-height: 100px;
+              min-width: 100px;
+              background: darkorange;
+              flex-grow: {{this.flexItemFlexGrow}};
+              align-self: {{this.flexItemAlignSelf}};
+            ">
+            Box A
+          </div>
+
+          <div
+            class="demo-item demo-item--block demo-item--no-width"
+            style="
+              min-height: 100px;
+              min-width: 100px;
+              background: mediumaquamarine;
+              flex-grow: {{this.flexItemFlexGrow}};
+              align-self: {{this.flexItemAlignSelf}};
+              ">
+            Box B
+          </div>
+
+          <div
+            class="demo-item demo-item--block demo-item--no-width"
+            style="
+              min-height: 100px;
+              min-width: 100px;
+              background: darkcyan;
+              flex-grow: {{this.flexItemFlexGrow}};
+              align-self: {{this.flexItemAlignSelf}};
+              ">
+            Box C
+          </div>
+
+          <div
+            class="demo-item demo-item--block demo-item--no-width"
+            style="
+              min-height: 100px;
+              min-width: 100px;
+              background: mediumpurple;
+              flex-grow: {{this.flexItemFlexGrow}};
+              align-self: {{this.flexItemAlignSelf}};
+              ">
+            Box D
+          </div>
+        </div>
+
+        <div class="section__controls">
+          <div class="section__controls__title">
+            Controls on Children
+          </div>
+
+          <div class="section__controls__input section__controls__input--inline">
+            <select name="flex-item-grow" {{on 'input' this.updateFlexItemFlexGrow}}>
+              <option>flex-grow</option>
+              <option value="0">flex-grow: 0</option>
+              <option value="1">flex-grow: 1</option>
+            </select>
+          </div>
+
+          <div class="section__controls__input section__controls__input--inline">
+            <select name="align-self" {{on 'input' this.updateFlexItemAlignSelf}}>
+              <option>align-self</option>
+              <option value="flex-start">align-self: flex-start</option>
+              <option value="flex-end">align-self: flex-end</option>
+              <option value="center">align-self: center</option>
+              <option value="baseline">align-self: baseline</option>
+              <option value="stretch">align-self: stretch</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{!-- end flex items --}}

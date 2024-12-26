@@ -29,6 +29,10 @@
   gap: 12px;
 }
 
+.section__controls__input.section__controls__input--inline {
+  display: inline-flex;
+}
+
 .section__controls__input + .section__controls__input {
   margin-top: 16px;
 }
